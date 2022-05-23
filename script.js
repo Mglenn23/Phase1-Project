@@ -375,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let levelGame = getRandomInt(lvl);
         // log Cheat To Guess Card
         // log("level" + lvl);
-        log(levelGame);
+        // log(levelGame);
 
         let image = getIMG[levelGame];
 
