@@ -264,10 +264,31 @@ document.addEventListener("DOMContentLoaded", () => {
       highestLevel.push(medium);
       level(medium);
       levelH3.textContent = `Medium Level (${10 - winRate.length}Wins For Next Level)`;
-    } else if (winRate.length >= 10) {
+    } else if (winRate.length >= 10 && winRate.length < 15) {
       highestLevel.push(hard);
       level(hard);
       levelH3.textContent = `Hard Level (${15 - winRate.length}Wins For Champhion)`;
+    } else if (winRate.length >= 15) {
+      healthPlayer.shift();
+      healthPlayer.push(100);
+      highestLevel.length = 0;
+      totalStreak.length = 0;
+      winRate.length = 0;
+      correctWrong.length = 0;
+
+      Swal.fire(
+        {
+          title: "Congratulation!",
+          text: "Your Champion!",
+          imageUrl: "https://media4.giphy.com/media/5USTijryafZEQ/giphy.gif",
+          imageWidth: 400,
+          imageHeight: 200,
+          imageAlt: "Your Champion!",
+        },
+        function () {
+          window.location.reload();
+        }
+      );
     }
     // End Validation Levels Game
 
@@ -356,9 +377,10 @@ document.addEventListener("DOMContentLoaded", () => {
           return Math.floor(Math.random() * max);
         }
         let levelGame = getRandomInt(lvl);
-        /* log Cheat To Guess Card
-            log(levelGame);
-        */
+        // log Cheat To Guess Card
+        // log("level" + lvl);
+        // log(levelGame);
+
         let image = getIMG[levelGame];
 
         // Validation & loop until get Img source
@@ -368,16 +390,19 @@ document.addEventListener("DOMContentLoaded", () => {
         sometimes it take more times to load the cards. If we don't use this
         validation it will give an error and our card not loaded.
         */
-        if (image == undefined) {
-          if (exe == false) {
-            exe = true;
-            myCard();
+        setTimeout(function () {
+          if (image == undefined) {
+            if (exe == false) {
+              exe = true;
+              myCard();
+            } else {
+              exe = false;
+            }
           } else {
-            exe = false;
+            myCardPic.src = `${image.src}`;
           }
-        } else {
-          myCardPic.src = `${image.src}`;
-        }
+        }, 500);
+
         // End Validation & loop until get Img source
       }, 1000);
     }
