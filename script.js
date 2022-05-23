@@ -269,12 +269,8 @@ document.addEventListener("DOMContentLoaded", () => {
       level(hard);
       levelH3.textContent = `Hard Level (${15 - winRate.length}Wins For Champhion)`;
     } else if (winRate.length >= 15) {
-      healthPlayer.shift();
-      healthPlayer.push(100);
-      highestLevel.length = 0;
-      totalStreak.length = 0;
-      winRate.length = 0;
-      correctWrong.length = 0;
+      deckOpponent.innerHTML = "";
+      myCardPic.src = "";
 
       Swal.fire(
         {
@@ -379,7 +375,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let levelGame = getRandomInt(lvl);
         // log Cheat To Guess Card
         // log("level" + lvl);
-        // log(levelGame);
+        log(levelGame);
 
         let image = getIMG[levelGame];
 
@@ -401,10 +397,10 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             myCardPic.src = `${image.src}`;
           }
-        }, 500);
+        }, 800);
 
         // End Validation & loop until get Img source
-      }, 1000);
+      }, 1500);
     }
     // End Function Load Our Card
     myCard();
