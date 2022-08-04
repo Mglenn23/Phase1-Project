@@ -1,4 +1,4 @@
-# Game Card By MG
+# Card Game By MG
 
 Card game created using HTML, CSS, Javascript. The card data for this game uses API from YGOPRODeck. To play this game, the player needs to pick a card that same as the player's Irish card. Players have a 100hp maximum and every time the player chooses the wrong card, the hp will decrease -25hp and if correct +15hp. Every win 5 times the player will be going to the next level, the level will be easy (2 cards) – medium (3 cards) – hard (6 cards). The game will be displayed win streak and player status.
 
